@@ -1,0 +1,1420 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #fff;
+    color: #222;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 300;
+}
+
+.header {
+    width: 100%;
+}
+
+.wrapper {
+    width: 1280px;
+    margin: 0 auto;
+    padding: 20px 0; /* Додаємо відступ зверху і знизу для wrapper */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Логотип */
+.logo {
+    font-weight: 600;
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 10px;
+}
+.menu-toggle{
+  display: none;
+}
+/* Список навігації */
+.nav {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+    justify-content: flex-end;
+    margin-bottom: 48px; /* Відступ між списком і фоновим блоком */
+    margin-top: -27px; /* Піднімамо список трохи вгору */
+}
+
+.nav li {
+    cursor: pointer;
+    transition: opacity 0.5s ease;
+}
+
+.nav li:hover {
+    opacity: 0.5;
+}
+
+.shop-cart-button {
+    margin-left: auto;
+    cursor: pointer;
+    transition: color 500ms ease;  
+    margin-top: -65px;
+    margin-bottom: 37px;
+    margin-right: 270px;
+    display: flex;
+    align-items: center;
+}
+
+.cart-icon {
+    transition: color,transform, 500ms ease;
+}
+
+.shop-cart-button:hover .cart-icon {
+    color: #ce1e2c; /* Змінюємо колір при наведенні */
+  transform:  scale(1.5);
+}
+
+.shop-cart-button .active {
+    color: #f22f2f; /* Залишається червоним після натискання */
+    transform:  scale(1.5);
+}
+.shop-cart{
+    position: absolute;
+    top:75px;
+    left:1141px;
+    width:450px;
+    background: rgb(237, 235, 235);
+    -webkit-box-shadow: 8px 8px 5px 0px rgb(225, 221, 225);
+    -moz-box-shadow: 8px 8px 5px 0px rgb(252, 247, 252);
+    box-shadow: 8px 8px 5px 0px rgb(209, 207, 209);
+   z-index: 1000;
+   padding: 24px;
+}
+.shop-cart{
+    padding-bottom: 0px;
+    border-radius: 15px; /* Радіус закруглення */
+}
+.shop-cart .empty h2{
+font-size: 20px;
+margin-bottom: 22px ;
+border: 2px solid #9c9a9a; /* Колір і товщина рамки */
+border-radius: 10px; /* Закруглення кутів (за бажанням) */
+padding: 10px; /* Відступи всередині рамки */
+display: inline-block; /* Щоб рамка відповідала розміру тексту */
+color: #6e625a; /* Коричневий колір тексту */
+text-shadow:  0px 4px 4px rgba(131, 130, 130, 0.8);  /* Дуже виразна тінь */
+font-weight: bold; /* Підкреслює текст (опціонально) */
+ 
+}
+.shop-cart .item {
+    background: none; /* Прибирає фон */
+    box-shadow: none; /* Опціонально, якщо не потрібна тінь */
+    width: 100%;
+    margin: 0; /* Прибирає зовнішні відступи */
+    padding: 0; /* Прибирає внутрішні відступи */
+    margin-bottom: -10px; 
+    border-top-left-radius: 0; 
+}
+.shop-cart .item img {
+    width: 120px;
+    height: 120px;
+    float: left;
+    margin-right: 20px;
+    margin-bottom: -39px; 
+    padding-bottom: 0px;
+}
+.shop-cart .item h2{
+    font-size: 20px;
+    margin-bottom: 20px;
+    margin-left: 150px;
+    transform: translateY(-90px);
+}
+.shop-cart .item p{
+    color: rgb(134, 125, 125);
+    font-weight:600 ;
+    margin-left: 150px;
+    transform: translateY(-90px);
+}
+
+.item {
+    position: relative; /* Встановлюємо основу для позиціювання */
+  }
+  
+.delete-icon {
+    position: absolute;
+    top: 50%; /* Центрування вертикально */
+    right: 0; /* Вирівнювання до правого краю */
+    transform: translateY(-50%); /* Корекція вертикального центрування */
+    color: rgb(76, 78, 79);
+    cursor:pointer;
+    transition: color,transform, 500ms ease;
+  }
+.delete-icon:hover{
+    color:rgb(243, 11, 11);
+    transform: scale(1.5) ;
+}
+.shop-cart .summa {
+    float: left;
+    width: 100%;
+    font-weight: 600;
+    font-size: 20px;
+    margin-bottom: 10px;
+    margin-top: -15px; /* Підняття елементу догори */
+    margin-left: 5px; /* Зсув елементу вправо */
+    color: rgb(101, 119, 129);
+}
+
+
+/* Стиль для блоку з фоновим зображенням */
+.presentation {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin-top: 20px; /* Відступ між списком і фоновим блоком */
+}
+/* Затемнення для фону */
+.presentation::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3); /* Прозоре затемнення */
+    z-index: 1;
+}
+
+/* Текст "Кращі товари для вашого дому" */
+.presentation::after {
+    content: 'Кращі товари для вашого дому';
+    position: absolute;
+    top: 25%;
+    left: 60%;
+    transform: translate(-290%, -50%);
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+    max-width: 250px;
+    text-align: center;
+    line-height: 1.4;
+    white-space: normal;
+    z-index: 2;
+}
+
+/* Текст "за низькими цінами" */
+.promo-text {
+    position: absolute;
+    bottom: 200px;
+    left: 850px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    z-index: 2;
+}
+.categories div{
+    display: inline-block;
+    background: rgb(235, 233, 233);
+    border-radius:50px ;
+    padding: 10px 20px ;
+    margin-bottom: 25px;
+    margin-right: 15px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all 500ms ease;
+}
+.categories div:hover{
+   border-color: silver;
+   transform: scale(1.1);
+}
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Прозорий чорний фон */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000; /* Поверх інших елементів */
+}
+  
+.show-full-item {
+    background-color: #eae9e9;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 600px;
+    width: 90%;
+    position: relative;
+    text-align: center; /* Центрування тексту та елементів */
+}
+  
+.show-full-item .item-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+  
+.show-full-item .item-image {
+    width: 100%;
+    max-width: 500px; /* Максимальна ширина зображення */
+    height: 300px; /* Фіксована висота для всіх зображень */
+    object-fit: contain; /* Зберігає пропорції, не обрізає зображення */
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+  
+.close-button {
+    position: absolute;
+    top: 20px;
+    right: 15px;
+    background: none;
+    border: 2px solid #8e8d8d; /* Рамка навколо кнопки */
+    border-radius: 4px; /* Заокруглені кути */
+    width: 40px; /* Фіксована ширина кнопки */
+    height: 40px; /* Фіксована висота кнопки */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    cursor: pointer;
+    color: #6e6c6c;
+    transition: all 500ms ease;
+}
+
+.close-button:hover {
+    background: #9a9999; /* Темний фон при наведенні */
+    color: #cfcccc; /* Білий колір тексту при наведенні */
+    transform: scale(1.2);
+} 
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.item {
+    width: calc(33.333% - 30px); /* Зменшено ширину для збільшення простору між елементами */
+    margin-bottom: 50px;
+    background: rgb(243, 241, 241);
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding-bottom: 20px;
+    margin-right: 15px; /* Збільшено відступи між елементами */
+    margin-left: 15px; /* Збільшено відступи між елементами */
+}
+
+.item img {
+    width: 100%;
+    height: 340px; /* Фіксована висота для всіх зображень */
+    object-fit: fill; /* Повне заповнення контейнера без врахування пропорцій */
+    transition: transform 500ms ease;
+    cursor: pointer;
+}
+
+.item img:hover {
+    transform: scale(1.05);
+}
+.h2,
+ p,
+ b {
+margin: 8px 20px;
+color:#333
+}
+h2 {
+    margin-left: 20px; /* Відступ зліва */
+    margin-top: 20px;  /* Відступ зверху */
+}
+b  {
+color: hsl(0, 30%, 30%);
+font-size: 1.1em
+}
+.add-to-cart{
+ position:absolute; 
+ right: 20px;
+ bottom:20px ;
+ background: rgb(193, 154, 154);
+ width:38px;
+ height:38px;
+ text-align: center;
+ line-height:38px ;
+ color:white ;
+ border-radius: 50% ;
+ cursor: pointer;
+font-weight: 600;
+transition: transform 500ms ease;
+}
+.add-to-cart:hover{
+    transform: scale(1.5) translateY(-5px);
+}
+
+footer {
+text-align: center;
+margin-top: 100px;
+}
+@media (min-width: 1980px) and (max-width: 2000px) {
+  .shop-cart{
+    position: absolute;
+    top: 91px;
+    left: 1180px;
+    width:450px;
+    background: rgb(237, 235, 235);
+    -webkit-box-shadow: 8px 8px 5px 0px rgb(225, 221, 225);
+    -moz-box-shadow: 8px 8px 5px 0px rgb(252, 247, 252);
+    box-shadow: 8px 8px 5px 0px rgb(209, 207, 209);
+   z-index: 1000;
+   padding: 24px;
+}
+  .shop-cart{
+    padding-bottom: 0px;
+    border-radius: 15px; /* Радіус закруглення */
+}
+}
+@media (min-width: 1960px) and (max-width: 1980px) {
+  .shop-cart{
+    position: absolute;
+    top: 91px;
+    left: 1170px;
+    width:450px;
+    background: rgb(237, 235, 235);
+    -webkit-box-shadow: 8px 8px 5px 0px rgb(225, 221, 225);
+    -moz-box-shadow: 8px 8px 5px 0px rgb(252, 247, 252);
+    box-shadow: 8px 8px 5px 0px rgb(209, 207, 209);
+   z-index: 1000;
+   padding: 24px;
+}
+  .shop-cart{
+    padding-bottom: 0px;
+    border-radius: 15px; /* Радіус закруглення */
+}
+}
+@media (max-width: 1950px) {
+  .shop-cart{
+    position: absolute;
+    top: 91px;
+    left: 1160px;
+    width:450px;
+    background: rgb(237, 235, 235);
+    -webkit-box-shadow: 8px 8px 5px 0px rgb(225, 221, 225);
+    -moz-box-shadow: 8px 8px 5px 0px rgb(252, 247, 252);
+    box-shadow: 8px 8px 5px 0px rgb(209, 207, 209);
+   z-index: 1000;
+   padding: 24px;
+}
+.shop-cart{
+    padding-bottom: 0px;
+    border-radius: 15px; /* Радіус закруглення */
+}
+}
+@media (min-width: 1841px) and (max-width: 1899px) {
+  .shop-cart{
+    position: absolute;
+    top: 91px;
+    left:1125px;
+    width:450px;
+    background: rgb(237, 235, 235);
+    -webkit-box-shadow: 8px 8px 5px 0px rgb(225, 221, 225);
+    -moz-box-shadow: 8px 8px 5px 0px rgb(252, 247, 252);
+    box-shadow: 8px 8px 5px 0px rgb(209, 207, 209);
+   z-index: 1000;
+   padding: 24px;
+}
+.shop-cart{
+    padding-bottom: 0px;
+    border-radius: 15px; /* Радіус закруглення */
+}
+}
+@media (min-width: 1821px) and (max-width: 1840px) {
+  .shop-cart{
+    position: absolute;
+    top: 91px;
+    left:1102px;
+    width:450px;
+    background: rgb(237, 235, 235);
+    -webkit-box-shadow: 8px 8px 5px 0px rgb(225, 221, 225);
+    -moz-box-shadow: 8px 8px 5px 0px rgb(252, 247, 252);
+    box-shadow: 8px 8px 5px 0px rgb(209, 207, 209);
+   z-index: 1000;
+   padding: 24px;
+}
+.shop-cart{
+    padding-bottom: 0px;
+    border-radius: 15px; /* Радіус закруглення */
+}
+}
+@media (min-width: 1801px) and (max-width: 1820px) {
+  .shop-cart{
+    position: absolute;
+    top: 91px;
+    left:1095px;
+    width:450px;
+    background: rgb(237, 235, 235);
+    -webkit-box-shadow: 8px 8px 5px 0px rgb(225, 221, 225);
+    -moz-box-shadow: 8px 8px 5px 0px rgb(252, 247, 252);
+    box-shadow: 8px 8px 5px 0px rgb(209, 207, 209);
+   z-index: 1000;
+   padding: 24px;
+}
+.shop-cart{
+    padding-bottom: 0px;
+    border-radius: 15px; /* Радіус закруглення */
+}
+}
+@media (max-width: 1800px) {
+  .shop-cart{
+    position: absolute;
+    top: 91px;
+    left:1087px;
+    width:450px;
+    background: rgb(237, 235, 235);
+    -webkit-box-shadow: 8px 8px 5px 0px rgb(225, 221, 225);
+    -moz-box-shadow: 8px 8px 5px 0px rgb(252, 247, 252);
+    box-shadow: 8px 8px 5px 0px rgb(209, 207, 209);
+   z-index: 1000;
+   padding: 24px;
+}
+.shop-cart{
+    padding-bottom: 0px;
+    border-radius: 15px; /* Радіус закруглення */
+}
+}
+@media (min-width: 1741px) and (max-width: 1770px){
+  .shop-cart{
+    position: absolute;
+    top: 91px;
+    left:1069px;
+    width:450px;
+    background: rgb(237, 235, 235);
+    -webkit-box-shadow: 8px 8px 5px 0px rgb(225, 221, 225);
+    -moz-box-shadow: 8px 8px 5px 0px rgb(252, 247, 252);
+    box-shadow: 8px 8px 5px 0px rgb(209, 207, 209);
+   z-index: 1000;
+   padding: 24px;
+}
+.shop-cart{
+    padding-bottom: 0px;
+    border-radius: 15px; /* Радіус закруглення */
+}
+}
+
+@media (min-width: 1730px) and (max-width: 1740px){
+  .shop-cart{
+    position: absolute;
+    top: 91px;
+    left:1055px;
+    width:450px;
+    background: rgb(237, 235, 235);
+    -webkit-box-shadow: 8px 8px 5px 0px rgb(225, 221, 225);
+    -moz-box-shadow: 8px 8px 5px 0px rgb(252, 247, 252);
+    box-shadow: 8px 8px 5px 0px rgb(209, 207, 209);
+   z-index: 1000;
+   padding: 24px;
+}
+.shop-cart{
+    padding-bottom: 0px;
+    border-radius: 15px; /* Радіус закруглення */
+}
+}
+@media (min-width: 1701px) and (max-width: 1729px){
+  .shop-cart{
+    position: absolute;
+    top: 91px;
+    left:1055px;
+    width:450px;
+    background: rgb(237, 235, 235);
+    -webkit-box-shadow: 8px 8px 5px 0px rgb(225, 221, 225);
+    -moz-box-shadow: 8px 8px 5px 0px rgb(252, 247, 252);
+    box-shadow: 8px 8px 5px 0px rgb(209, 207, 209);
+   z-index: 1000;
+   padding: 24px;
+}
+.shop-cart{
+    padding-bottom: 0px;
+    border-radius: 15px; /* Радіус закруглення */
+}
+}
+@media (max-width: 1700px) {
+  .shop-cart{
+    position: absolute;
+    top: 91px;
+    left:1038px;
+    width:450px;
+    background: rgb(237, 235, 235);
+    -webkit-box-shadow: 8px 8px 5px 0px rgb(225, 221, 225);
+    -moz-box-shadow: 8px 8px 5px 0px rgb(252, 247, 252);
+    box-shadow: 8px 8px 5px 0px rgb(209, 207, 209);
+   z-index: 1000;
+   padding: 24px;
+}
+.shop-cart{
+    padding-bottom: 0px;
+    border-radius: 15px; /* Радіус закруглення */
+}
+}
+@media (min-width: 1601px) and (max-width: 1660px){
+  .shop-cart{
+    position: absolute;
+    top: 91px;
+    left:1015px;
+    width:450px;
+    background: rgb(237, 235, 235);
+    -webkit-box-shadow: 8px 8px 5px 0px rgb(225, 221, 225);
+    -moz-box-shadow: 8px 8px 5px 0px rgb(252, 247, 252);
+    box-shadow: 8px 8px 5px 0px rgb(209, 207, 209);
+   z-index: 1000;
+   padding: 24px;
+}
+.shop-cart{
+    padding-bottom: 0px;
+    border-radius: 15px; /* Радіус закруглення */
+}
+}
+@media (max-width: 1600px) {
+  .shop-cart{
+    position: absolute;
+    top: 91px;
+    left:987px;
+    width:450px;
+    background: rgb(237, 235, 235);
+    -webkit-box-shadow: 8px 8px 5px 0px rgb(225, 221, 225);
+    -moz-box-shadow: 8px 8px 5px 0px rgb(252, 247, 252);
+    box-shadow: 8px 8px 5px 0px rgb(209, 207, 209);
+   z-index: 1000;
+   padding: 24px;
+}
+.shop-cart{
+    padding-bottom: 0px;
+    border-radius: 15px; /* Радіус закруглення */
+}
+}
+@media (min-width: 1501px) and (max-width: 1560px) {
+  .shop-cart{
+    position: absolute;
+    top: 91px;
+    left:962px;
+    width:450px;
+    background: rgb(237, 235, 235);
+    -webkit-box-shadow: 8px 8px 5px 0px rgb(225, 221, 225);
+    -moz-box-shadow: 8px 8px 5px 0px rgb(252, 247, 252);
+    box-shadow: 8px 8px 5px 0px rgb(209, 207, 209);
+   z-index: 1000;
+   padding: 24px;
+}
+.shop-cart{
+    padding-bottom: 0px;
+    border-radius: 15px; /* Радіус закруглення */
+}
+}
+@media (max-width: 1500px) {
+  .shop-cart{
+    position: absolute;
+    top: 91px;
+    left:937px;
+    width:450px;
+    background: rgb(237, 235, 235);
+    -webkit-box-shadow: 8px 8px 5px 0px rgb(225, 221, 225);
+    -moz-box-shadow: 8px 8px 5px 0px rgb(252, 247, 252);
+    box-shadow: 8px 8px 5px 0px rgb(209, 207, 209);
+   z-index: 1000;
+   padding: 24px;
+}
+.shop-cart{
+    padding-bottom: 0px;
+    border-radius: 15px; /* Радіус закруглення */
+}
+}
+@media (min-width: 1401px) and (max-width: 1440px){
+  .shop-cart{
+    position: absolute;
+    top: 91px;
+    left:908px;
+    width:450px;
+    background: rgb(237, 235, 235);
+    -webkit-box-shadow: 8px 8px 5px 0px rgb(225, 221, 225);
+    -moz-box-shadow: 8px 8px 5px 0px rgb(252, 247, 252);
+    box-shadow: 8px 8px 5px 0px rgb(209, 207, 209);
+   z-index: 1000;
+   padding: 24px;
+}
+.shop-cart{
+    padding-bottom: 0px;
+    border-radius: 15px; /* Радіус закруглення */
+}
+}
+@media (max-width: 1400px) {
+  .shop-cart{
+    position: absolute;
+    top: 91px;
+    left:885px;
+    width:450px;
+    background: rgb(237, 235, 235);
+    -webkit-box-shadow: 8px 8px 5px 0px rgb(225, 221, 225);
+    -moz-box-shadow: 8px 8px 5px 0px rgb(252, 247, 252);
+    box-shadow: 8px 8px 5px 0px rgb(209, 207, 209);
+   z-index: 1000;
+   padding: 24px;
+}
+.shop-cart{
+    padding-bottom: 0px;
+    border-radius: 15px; /* Радіус закруглення */
+}
+}
+@media (min-width: 1321px) and (max-width: 1360px){
+  .shop-cart{
+    position: absolute;
+    top: 91px;
+    left:863px;
+    width:450px;
+    background: rgb(237, 235, 235);
+    -webkit-box-shadow: 8px 8px 5px 0px rgb(225, 221, 225);
+    -moz-box-shadow: 8px 8px 5px 0px rgb(252, 247, 252);
+    box-shadow: 8px 8px 5px 0px rgb(209, 207, 209);
+   z-index: 1000;
+   padding: 24px;
+}
+.shop-cart{
+    padding-bottom: 0px;
+    border-radius: 15px; /* Радіус закруглення */
+}
+}
+@media (min-width: 1301px) and (max-width: 1320px){
+  .shop-cart{
+    position: absolute;
+    top: 91px;
+    left:848px;
+    width:450px;
+    background: rgb(237, 235, 235);
+    -webkit-box-shadow: 8px 8px 5px 0px rgb(225, 221, 225);
+    -moz-box-shadow: 8px 8px 5px 0px rgb(252, 247, 252);
+    box-shadow: 8px 8px 5px 0px rgb(209, 207, 209);
+   z-index: 1000;
+   padding: 24px;
+}
+.shop-cart{
+    padding-bottom: 0px;
+    border-radius: 15px; /* Радіус закруглення */
+}
+}
+@media (max-width: 1300px) {
+  .shop-cart{
+    position: absolute;
+    top: 91px;
+    left:835px;
+    width:450px;
+    background: rgb(237, 235, 235);
+    -webkit-box-shadow: 8px 8px 5px 0px rgb(225, 221, 225);
+    -moz-box-shadow: 8px 8px 5px 0px rgb(252, 247, 252);
+    box-shadow: 8px 8px 5px 0px rgb(209, 207, 209);
+   z-index: 1000;
+   padding: 24px;
+}
+.shop-cart{
+    padding-bottom: 0px;
+    border-radius: 15px; /* Радіус закруглення */
+}
+}
+
+@media (max-width: 1286px) {
+  .presentation {
+    position: relative;
+    width: calc(100% - 30px); /* Зменшуємо ширину контейнера на суму відступів */
+    height: 520px; /* Висота для мобільних */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin: 0 auto; /* Центруємо блок */
+    padding: 0 10px; /* Відступи всередині контейнера */
+    box-sizing: border-box; /* Враховуємо padding в ширину */
+    border-radius: 8px; /* Округляємо кути для більш акуратного вигляду */
+}
+ .logo {
+     /* Зменшений розмір шрифту */
+      margin-top: 15px;
+      margin-left: 20px;  
+    }
+    .shop-cart-button {
+      margin-left: auto;
+      cursor: pointer;
+      transition: color 500ms ease;  
+      margin-top: -65px;
+      margin-bottom: 37px;
+      margin-right: 300px;
+      display: flex;
+      align-items: center;
+  }
+  .shop-cart{
+    position: absolute;
+    top: 91px;
+    left:810px;
+    width:450px;
+    background: rgb(237, 235, 235);
+    -webkit-box-shadow: 8px 8px 5px 0px rgb(225, 221, 225);
+    -moz-box-shadow: 8px 8px 5px 0px rgb(252, 247, 252);
+    box-shadow: 8px 8px 5px 0px rgb(209, 207, 209);
+   z-index: 1000;
+   padding: 24px;
+}
+.shop-cart{
+    padding-bottom: 0px;
+    border-radius: 15px; /* Радіус закруглення */
+}
+.nav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center; /* Центрує елементи по вертикалі */
+  margin-top: -27px;
+  margin-bottom: 48px;
+  padding-right: 22px; /* Відступ з правого боку */
+}
+}
+  @media (max-width: 500px) {
+      .wrapper {
+        grid-template-columns: repeat(2, 1fr);
+        width: 100%;
+        padding: 5px; /* Зменшуємо відступи */
+      }
+     
+      .add-to-cart{
+        position:absolute; 
+        right: 20px;
+        bottom:20px ;
+        background: rgb(193, 154, 154);
+        width:38px;
+        height:38px;
+        text-align: center;
+        line-height:38px ;
+        color:white ;
+        border-radius: 50% ;
+        cursor: pointer;
+       font-weight: 600;
+       transition: transform 0.3s ease-in-out; 
+       }
+       .add-to-cart:hover{
+           transform: scale(1.2) translateY(-5px);
+       }
+       .shop-cart .summa {
+        float: left;
+        width: 100%;
+        font-weight: 600;
+        font-size: 15px;
+        margin-bottom: 10px;
+        margin-top: -35px; /* Підняття елементу догори */
+        margin-left: 5px; /* Зсув елементу вправо */
+        color: rgb(101, 119, 129);
+    }
+      
+    .logo {
+      font-size: 14px; /* Зменшений розмір шрифту */
+      margin-top: 15px; 
+      margin-left: 1px; 
+    }
+    
+    
+      .shop-cart-button {
+        margin-top: -50px;
+        margin-right: 10px;
+        margin-top: -20px;
+        margin-left: 450px;
+        color: black;
+        transition: color 0.3s ease, transform 0.3s ease;
+      }
+      
+      .shop-cart-button .active {
+        color: rgb(224, 84, 84);
+        transform: scale(1.1);
+        font-size: 15px;
+      }
+      .presentation {
+        position: relative;
+        width: calc(100% - 0px); /* Відняли 8px (4px з кожного боку) */
+        height: 240px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        margin: 0 auto;
+        box-sizing: border-box;
+    }
+    
+      .promo-text {
+        bottom: 105px;
+        left: 300px;
+        font-size: 12px; /* Зменшуємо розмір тексту */
+      }
+      .presentation::after {
+        content: 'Кращі товари для вашого дому';
+        position: absolute;
+        top: 30%; /* Збільшено відстань зверху для кращого розташування */
+        left: 50%; /* Вирівнюємо по центру */
+        transform: translate(-105%, -50%); /* Центруємо текст по обох осях */
+        color: white;
+        font-size: 18px; /* Зменшуємо шрифт для мобільних */
+        font-weight: bold;
+        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+        max-width: 80%; /* Зменшуємо максимальну ширину тексту */
+        text-align: center;
+        line-height: 1.4;
+        white-space: normal;
+        z-index: 2;
+    }
+      .shop-cart {
+      position: absolute;
+      top: 60px;
+      left: 163px; /* Зменшено лівий відступ */
+      right: 10px; /* Правий відступ залишено без змін */
+      width: auto;
+      max-width: 65%; /* Максимальна ширина */
+      height: auto;
+      max-height: 200px; /* Максимальна висота */
+      background: rgb(237, 235, 235);
+      padding: 8px;
+      border-radius: 8px;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+      overflow-y: auto;
+      }
+    
+      .shop-cart .empty h2 {
+        font-size: 14px;
+        text-align: center;
+      }
+      .shop-cart .item img {
+        width: 110px;
+        height: 110px;
+        float: left;
+        margin-right: 20px;
+        margin-bottom: -20px; 
+        padding-bottom: 0px;
+    }
+    .shop-cart .item h2{
+        font-size: 16px;
+        margin-bottom: 20px;
+        margin-left: 130px;
+        transform: translateY(-80px);
+    }
+    .shop-cart .item p{
+        color: rgb(134, 125, 125);
+        font-weight:600 ;
+        margin-left: 130px;
+        transform: translateY(-80px);
+    }
+    
+    .delete-icon {
+      position: absolute;
+      top: 52%; /* Центрування вертикально */
+      left:250px; /* Вирівнювання до правого краю */
+      transform: translateY(-50%); /* Корекція вертикального центрування */
+      color: rgb(76, 78, 79);
+      cursor:pointer;
+      transition: color,transform, 500ms ease;
+    }
+   
+      .items-container {
+        display: flex;
+        flex-wrap: wrap; /* Дозволяємо елементам переноситися на новий ряд */
+        gap: 10px; /* Додаємо відстань між картинками */
+      }
+    
+      .item {
+        margin-right: 0;
+        margin-left: 0;
+        width: 49.2%; /* Встановлюємо ширину для двох елементів в ряд */
+        gap: 0px;
+        margin-bottom: 15px; 
+        
+      }
+      .item img {
+        width: 104%;
+        height: 240px; /* Однакова висота для всіх зображень */
+        object-fit: cover; /* Зберігає пропорції, заповнюючи контейнер */
+        border-radius: 5px; /* Округляємо кути, щоб картинки виглядали акуратніше */
+        
+      }
+      .h2,
+       p,
+       b {
+       margin: 8px 20px;
+       color:#403e3e;
+       font-size: 12px;
+       }
+      h2 {
+      margin-left: 20px; /* Відступ зліва */
+      margin-top: 15px;  /* Відступ зверху */
+      font-size: 16px;
+      }
+      b  {
+      color: hsl(0, 30%, 30%);
+      font-size: 1.1em;
+      font-size: 12px;
+      }
+      .shop-cart-button {
+        margin-top: -40px;
+        margin-left: auto;
+        margin-right: 5px;
+        text-align: center;
+      }
+
+    .categories {
+        display: flex;
+        overflow-x: auto; /* Дозволяє горизонтальний скрол */
+        gap: 10px; /* Відстань між категоріями */
+        padding: 10px 0; /* Трохи відступів зверху та знизу */
+      }
+    
+      .categories div {
+        font-size: 12px; /* Зменшуємо розмір тексту */
+        padding: 5px 10px;
+        white-space: nowrap; /* Забороняємо розрив рядків */
+        border: 1px solid #ddd; /* Додаємо межі для категорій */
+        border-radius: 5px;
+      }
+    
+      .show-full-item .item-image {
+        width: 100%;
+        height: 150px;
+      }
+    
+      footer {
+        margin-top: 30px;
+        padding: 5px;
+      }
+      .nav {
+        display: none; /* Ховаємо навігацію за замовчуванням */
+        flex-direction: column;
+        position: absolute;
+        top: 50px;
+        left: 0;
+        width: 100%;
+        background-color: white;
+        padding: 10px 0;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        background-color: rgba(115, 113, 113, 0.9);
+      }
+    
+      .nav.open {
+        display: flex; /* Відображаємо меню, коли воно відкрито */
+        top: 27px;
+      }
+      .nav.open li {
+        padding-left: 10px; /* Додаємо відступ зліва для тексту всередині кожного елемента */
+        font-weight: bold;
+      }
+    
+      .menu-toggle {
+        display: block; /* Показуємо кнопку для відкриття меню */
+      }
+    }
+
+    @media (max-width: 488px) {
+      .item {
+        margin-right: 0;
+        margin-left: 0;
+        width: 49.2%; /* Встановлюємо ширину для двох елементів в ряд */
+        gap: 0px;
+        margin-bottom: 15px; 
+      }
+      .item img {
+        width: 104%;
+        height: 240px; /* Однакова висота для всіх зображень */
+        object-fit: cover; /* Зберігає пропорції, заповнюючи контейнер */
+        border-radius: 5px; /* Округляємо кути, щоб картинки виглядали акуратніше */
+        
+      }
+      .shop-cart-button {
+        margin-top: -50px;
+        margin-right: 10px;
+        margin-top: -20px;
+        margin-left: 420px; 
+      }
+      .shop-cart {
+        position: absolute;
+        top: 57px;
+        left: 163px; /* Зменшено лівий відступ */
+        right: 10px; /* Правий відступ залишено без змін */
+        width: auto;
+        max-width: 65%; /* Максимальна ширина */
+        height: auto;
+        max-height: 200px; /* Максимальна висота */
+        background: rgb(237, 235, 235);
+        padding: 8px;
+        border-radius: 8px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        overflow-y: auto;
+        }
+        .shop-cart-button {
+          margin-top: -40px;
+          margin-left: auto;
+          margin-right: 5px;
+          text-align: center;
+        }
+       
+    }
+
+    @media (max-width: 460px) {
+      .wrapper {
+        grid-template-columns: 1fr; /* Одна колонка */
+        justify-content: center; /* Центруємо всі елементи в контейнері */
+      }
+      .item {
+        margin: 0 auto 15px auto; /* Вирівнюємо елементи по центру */
+        width: 70%; /* Зменшуємо ширину елементів */
+        max-width: 370px; /* Обмежуємо максимальну ширину */
+      }
+      .item img {
+        width: 100%; /* Зображення займає всю ширину елемента */
+        height: auto; /* Автоматична висота для збереження пропорцій */
+        object-fit: cover; /* Зберігає пропорції зображення */
+        border-radius: 5px; /* Округляємо кути */
+      }
+      .shop-cart-button {
+        margin-top: -20px;
+        margin-left: auto;
+        margin-right: 10px;
+        text-align: center;
+      }
+      .shop-cart-button {
+        margin-top: -40px;
+        margin-left: auto;
+        margin-right: 5px;
+        text-align: center;
+      }
+    }
+    @media (max-width: 453px) {
+      .promo-text {
+        bottom: 105px;
+        left: 270px;
+        font-size: 10px; /* Зменшуємо розмір тексту */
+      }
+      .presentation::after {
+        content: 'Кращі товари для вашого дому';
+        position: absolute;
+        top: 25%; /* Збільшено відстань зверху для кращого розташування */
+        left: 52%; /* Вирівнюємо по центру */
+        transform: translate(-105%, -50%); /* Центруємо текст по обох осях */
+        color: white;
+        font-size: 15px; /* Зменшуємо шрифт для мобільних */
+        font-weight: bold;
+        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+        max-width: 80%; /* Зменшуємо максимальну ширину тексту */
+        text-align: center;
+        line-height: 1.4;
+        white-space: normal;
+        z-index: 2;
+    }
+    .shop-cart-button {
+      margin-top: -40px;
+      margin-left: auto;
+      margin-right: 5px;
+      text-align: center;
+    }
+    }
+    @media (max-width: 430px) {
+      .wrapper {
+        grid-template-columns: 1fr; /* Одна колонка */
+        justify-content: center; /* Центруємо всі елементи в контейнері */
+      }
+      .item {
+        margin: 0 auto 15px auto; /* Вирівнюємо елементи по центру */
+        width: 80%; /* Зменшуємо ширину елементів */
+        max-width: 370px; /* Обмежуємо максимальну ширину */
+      }
+      .item img {
+        width: 100%; /* Зображення займає всю ширину елемента */
+        height: auto; /* Автоматична висота для збереження пропорцій */
+        object-fit: cover; /* Зберігає пропорції зображення */
+        border-radius: 5px; /* Округляємо кути */
+      }
+      .shop-cart-button {
+        margin-top: -20px;
+        margin-left: auto;
+        margin-right: 10px;
+        text-align: center;
+      }
+      .shop-cart-button {
+        margin-top: -40px;
+        margin-left: auto;
+        margin-right: 5px;
+        text-align: center;
+      }
+      .shop-cart {
+        position: absolute;
+        top: 58px;
+        left: 119px; /* Зменшено лівий відступ */
+        right: 10px; /* Правий відступ залишено без змін */
+        width: auto;
+        max-width: 70%; /* Максимальна ширина */
+        height: auto;
+        max-height: 300px; /* Максимальна висота */
+        background: rgb(237, 235, 235);
+        padding: 8px;
+        border-radius: 8px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        overflow-y: auto;
+        }
+      
+      .shop-cart .item img {
+        width: 110px;
+        height: 110px;
+        float: left;
+        margin-right: 20px;
+        margin-bottom: -20px; 
+        padding-bottom: 0px;
+    }
+    .shop-cart .item h2{
+        font-size: 16px;
+        margin-bottom: 20px;
+        margin-left: 130px;
+        transform: translateY(-80px);
+    } 
+    .delete-icon {
+      position: absolute;
+      top: 50%; /* Центрування вертикально */
+      left:220px; /* Вирівнювання до правого краю */
+      transform: translateY(-50%); /* Корекція вертикального центрування */
+      color: rgb(76, 78, 79);
+      cursor:pointer;
+      transition: color,transform, 500ms ease;
+    }  
+    }
+    @media (max-width: 399px){
+      .promo-text {
+        bottom: 105px;
+        left: 240px;
+        font-size: 9px; /* Зменшуємо розмір тексту */
+      }
+      .presentation::after {
+        content: 'Кращі товари для вашого дому';
+        position: absolute;
+        top: 25%; /* Збільшено відстань зверху для кращого розташування */
+        left: 52%; /* Вирівнюємо по центру */
+        transform: translate(-105%, -50%); /* Центруємо текст по обох осях */
+        color: white;
+        font-size: 13px; /* Зменшуємо шрифт для мобільних */
+        font-weight: bold;
+        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+        max-width: 80%; /* Зменшуємо максимальну ширину тексту */
+        text-align: center;
+        line-height: 1.4;
+        white-space: normal;
+        z-index: 2;
+    }
+    .shop-cart-button {
+      margin-top: -40px;
+      margin-left: auto;
+      margin-right: 5px;
+      text-align: center;
+    }
+    }
+
+    @media (max-width: 364px) {
+      /* Встановлюємо для body або html overflow-x: hidden */
+      body, html {
+        overflow-x: hidden; /* Сховаємо горизонтальний скрол */
+      }
+    
+      .wrapper {
+        grid-template-columns: 1fr; /* Одна колонка */
+        justify-content: center; /* Центруємо всі елементи в контейнері */
+        padding-right: 5px; /* Додаємо невеликий правий відступ */
+        margin: 0; /* Знімаємо відступи */
+      }
+    
+      .item {
+        margin: 0 auto 10px auto; /* Вирівнюємо елементи по центру */
+        width: 100%; /* Повна ширина елементу */
+        max-width: 300px; /* Обмежуємо максимальну ширину */
+      }
+    
+      .item img {
+        width: 100%; /* Зображення займає всю ширину елемента */
+        height: auto; /* Автоматична висота для збереження пропорцій */
+        object-fit: cover; /* Зберігає пропорції зображення */
+        border-radius: 5px; /* Округляємо кути */
+      }
+    
+      .nav.open {
+        display: flex; /* Відображаємо меню, коли воно відкрито */
+        top: 27px;
+      }
+      .shop-cart-button {
+        margin-top: -40px;
+        margin-left: auto;
+        margin-right: 5px;
+        text-align: center;
+      }
+    
+      .shop-cart {
+        position: absolute;
+        top: 60px;
+        left: 63px; /* Зменшено лівий відступ */
+        right: 10px;
+        width: auto;
+        max-width: 80%; /* Максимальна ширина */
+        height: auto;
+        max-height: 250px; /* Максимальна висота */
+        background: rgb(237, 235, 235);
+        padding: 6px; /* Зменшено відступи */
+        border-radius: 8px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        overflow-y: auto;
+      }
+    
+      .shop-cart .item img {
+        width: 90px; /* Зменшена ширина зображення */
+        height: 90px; /* Зменшена висота зображення */
+        float: left;
+        margin-right: 15px;
+        margin-bottom: -10px;
+        padding-bottom: 0px;
+      }
+    
+      .shop-cart .item h2 {
+        font-size: 14px; /* Зменшений розмір шрифту */
+        margin-bottom: 10px;
+        margin-left: 110px;
+        transform: translateY(-70px);
+      }
+      .shop-cart-button {
+        margin-top: -40px;
+        margin-left: auto;
+        margin-right: 5px;
+        text-align: center;
+      }
+    
+      .delete-icon {
+        position: absolute;
+        top: 50%;
+        left: 230px; /* Зменшене відстань до правого краю */
+        transform: translateY(-50%);
+        color: rgb(76, 78, 79);
+        cursor: pointer;
+        transition: color, transform 500ms ease;
+      }
+      .promo-text {
+        bottom: 105px;
+        left: 200px;
+        font-size: 8px; /* Зменшуємо розмір тексту */
+      }
+      .presentation::after {
+        content: 'Кращі товари для вашого дому';
+        position: absolute;
+        top: 25%; /* Збільшено відстань зверху для кращого розташування */
+        left: 54%; /* Вирівнюємо по центру */
+        transform: translate(-105%, -50%); /* Центруємо текст по обох осях */
+        color: white;
+        font-size: 13px; /* Зменшуємо шрифт для мобільних */
+        font-weight: bold;
+        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+        max-width: 80%; /* Зменшуємо максимальну ширину тексту */
+        text-align: center;
+        line-height: 1.4;
+        white-space: normal;
+        z-index: 2;
+    }
+    }       
+        @media (max-width: 334px) {
+          .delete-icon {
+            position: absolute;
+            top: 50%; /* Центрування вертикально */
+            left:220px; /* Вирівнювання до правого краю */
+            transform: translateY(-50%); /* Корекція вертикального центрування */
+            color: rgb(76, 78, 79);
+            left: 210px; 
+            cursor:pointer;
+          } 
+          .shop-cart .item h2{
+            font-size: 12px;
+            margin-bottom: 20px;
+            margin-left: 120px;
+            transform: translateY(-90px);
+        }
+          .shop-cart .item p{
+            color: rgb(134, 125, 125);
+            font-weight:600 ;
+            margin-left: 120px;
+            transform: translateY(-90px);
+        }
+        .shop-cart-button {
+          margin-top: -40px;
+          margin-left: auto;
+          margin-right: 5px;
+          text-align: center;
+        }
+        .shop-cart {
+          position: absolute;
+          top: 60px;
+          left: 63px; /* Зменшено лівий відступ */
+          right: 10px;
+          width: auto;
+          max-width: 80%; /* Максимальна ширина */
+          height: auto;
+          max-height: 250px; /* Максимальна висота */
+          background: rgb(237, 235, 235);
+          padding: 6px; /* Зменшено відступи */
+          border-radius: 8px;
+          box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+          z-index: 1000;
+          overflow-y: auto;
+        }
+        }
+    
+    @media (max-width: 314px) {
+      .delete-icon {
+        position: absolute;
+        top: 45%; /* Центрування вертикально */
+        left:220px; /* Вирівнювання до правого краю */
+        transform: translateY(-50%); /* Корекція вертикального центрування */
+        color: rgb(76, 78, 79);
+        left: 200px; 
+        cursor:pointer;
+      } 
+      .shop-cart .item h2{
+        font-size: 12px;
+        margin-bottom: 20px;
+        margin-left: 120px;
+        transform: translateY(-90px);
+    }
+      .shop-cart .item p{
+        color: rgb(134, 125, 125);
+        font-weight:600 ;
+        margin-left: 120px;
+        transform: translateY(-90px);
+    }
+    .promo-text {
+      bottom: 105px;
+      left: 180px;
+      font-size: 8px; /* Зменшуємо розмір тексту */
+    }
+    .presentation::after {
+      content: 'Кращі товари для вашого дому';
+      position: absolute;
+      top: 25%; /* Збільшено відстань зверху для кращого розташування */
+      left: 54%; /* Вирівнюємо по центру */
+      transform: translate(-105%, -50%); /* Центруємо текст по обох осях */
+      color: white;
+      font-size: 10px; /* Зменшуємо шрифт для мобільних */
+      font-weight: bold;
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+      max-width: 80%; /* Зменшуємо максимальну ширину тексту */
+      text-align: center;
+      line-height: 1.4;
+      white-space: normal;
+      z-index: 2;
+  }
+    }
+
+
+    
